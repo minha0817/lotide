@@ -1,17 +1,6 @@
-//--------assertArraysEqual-----------------------------//
-const eqArrays = function (arr1, arr2) {
-  return JSON.stringify(arr1) === JSON.stringify(arr2);
-};
+const eqArrays = require("./eqArrays");
+const assertArraysEqual = require("./assertArraysEqual");
 
-const assertArraysEqual = function (arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`🥰 Assertion Passed: [${arr1}] === [${arr2}]`);
-  } else {
-    console.log(`😱 Assertion Failed: [${arr1}] !== [${arr2}]`);
-  }
-};
-
-//--------------takeUntil-----------------//
 const takeUntil = function (array, callback) {
   const thingsToTake = [];
   for (let i = 0; i < array.length; i++) {
@@ -47,3 +36,5 @@ const data2 = [
 const results2 = takeUntil(data2, (x) => x === ",");
 console.log(results2);
 assertArraysEqual(results2, ["I've", "been", "to", "Hollywood"]);
+
+module.exports = takeUntil;
