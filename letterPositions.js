@@ -1,8 +1,9 @@
 const letterPositions = function (sentence) {
   const result = {};
   // logic to update results here
-  let index = 0;
+  let index = 0; //
   for (const letter of sentence) {
+    //hello
     if (!result[letter]) {
       result[letter] = [index];
     } else {
