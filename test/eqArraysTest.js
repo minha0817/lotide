@@ -1,6 +1,15 @@
 const eqArrays = require("../eqArrays");
-const assertEqual = require("../assertEqual");
+const assert = require("chai").assert;
 
-console.log("***** assertEqual & eqArrays test code");
-assertEqual(eqArrays([1, 2, "3"], [1, 2, 3]), true);
-assertEqual(eqArrays(["a", "b", "c"], ["a", "b", "c"]), true);
+eqArrays([1, 2, "3"], [1, 2, 3]), true;
+eqArrays(["a", "b", "c"], ["a", "b", "c"]), true;
+
+describe("#eqArrays", () => {
+  it("returns true for this ", () => {
+    assert.deepEqual(eqArrays(["a", "b", "c"], ["a", "b", "c"]), true);
+  });
+
+  it("returns false for this ", () => {
+    assert.deepEqual(eqArrays([1, 2, "3"], [1, 2, 3]), false);
+  });
+});
